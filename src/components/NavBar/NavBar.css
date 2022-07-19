@@ -1,0 +1,87 @@
+li{
+    list-style: none;
+    display: inline;
+}
+
+a{
+    text-decoration: none;
+}
+
+.NavBar{
+    display: flex;
+    background-color: rgb(25, 151, 215);
+    width: 99vw;
+    padding: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.NavBar-logo{
+    background-image: url(/public/assets/spaceDistortions.webp);
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-left: 50px;
+}
+
+.Menu-items-cont{
+    display: flex;
+    width: 80vw;
+    align-items: center;
+}
+
+.Menu-items-cont a{
+    width: 200px;
+}
+.Menu-item{
+    margin: 1rem;
+    color: white;
+    padding: 1rem;
+}
+
+.Menu-item:hover{
+    background-color: rgb(15, 91, 129);
+    border-bottom: 3px solid rgb(250, 192, 1);
+    border-radius: 24px;
+}
+
+.Search-Bar{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-left: auto;
+}
+.Search-Bar input{
+    height: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+    .NavBar{
+        flex-direction: column;
+        align-items: center;
+    }
+    .NavBar-logo{
+        margin-left: -10px;
+        background-repeat: no-repeat;
+    }
+    .Menu-items-cont{
+        flex-direction: column;
+    }
+    .Menu-item{
+        padding:0rem;
+    }
+    .Menu-items-cont a{
+        display: block;
+        min-width: fit-content;
+        text-align: center;
+        margin-left: -40px;
+    }
+    .Menu-items-cont li{
+        line-height: 2rem;
+    }
+
+    .Search-Bar{
+        margin: auto;
+    }
+  }
+

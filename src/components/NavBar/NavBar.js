@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
-import {MenuItems} from './MenuItems'
+import '../NavBar/NavBar.css' 
 
 class NavBar extends Component {
     render(){
         return(
-            <nav className='NavBarItems'>
-                <h1 className='NavBar-logo'>Proyecto</h1>
-                <div className='Menu-icon'>
+            <nav className='NavBar'>
+                <img className='NavBar-logo'></img>
+                <div className='Menu-items-cont'>
+                    <ul>
+                        <li><a className="Menu-item" href='#'>Preventas</a></li>
+                        <li><a className="Menu-item" href='#'>Soundtracks</a></li>
+                        <li><a className="Menu-item" href='#'>4K Ultra HD</a></li>
+                        <li><a className="Menu-item" href='#'>Steelbooks</a></li>
+                        <li><a className="Menu-item" href='#'>DVD y Descatalogados</a></li>
+                        <li><a className="Menu-item" href='#'>Series</a></li>
+                    </ul>
                 </div>
-                <ul>
-                    <li></li>
-                </ul>
+                <div className='Search-Bar'>
+                    <input type="text" placeholder='Título o SKU'></input>
+                </div>
             </nav>
         )
     }
 };
 
-export default Navbar
+export default NavBar
