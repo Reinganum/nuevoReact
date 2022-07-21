@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import '../NavBar/NavBar.css' 
+import '../NavBar/NavBar.css'
+import CartWidget from '../CartWidget/CartWidget'; 
 
-class NavBar extends Component {
-    render(){
+const NavBar = ()=> {
         return(
             <nav className='NavBar'>
                 <img className='NavBar-logo'></img>
@@ -19,9 +19,9 @@ class NavBar extends Component {
                 <div className='Search-Bar'>
                     <input type="text" placeholder='Título o SKU'></input>
                 </div>
+                <CartWidget contador="1"/>
             </nav>
         )
-    }
-};
+    };
 
 export default NavBar

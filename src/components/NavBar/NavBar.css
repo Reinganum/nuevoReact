@@ -21,7 +21,7 @@ a{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    margin-left: 50px;
+    margin-left: 15px;
 }
 
 .Menu-items-cont{
@@ -55,6 +55,61 @@ a{
     height: 1rem;
 }
 
+/* Item List Container */
+
+.ItemListContainer{
+display: grid;
+grid-template-columns: repeat(5,1fr);
+width: 70vw;
+margin: 100px
+}
+
+.titulo{
+color: blue;
+text-align: center;
+margin-top: 50px;
+}
+
+.productCard{
+display: flex;
+flex-direction: column;
+margin: 20px;
+}
+
+img{
+width: 250px;
+height: 300px;
+margin: auto;
+}
+
+.BuyBtn{
+width: 100px;
+margin: auto;
+
+}
+
+p{
+margin: auto;
+}
+
+.CartIcon{
+    font-size: 2.5rem;
+    color: white;
+    margin: 0px 10px 0px 10px;
+}
+
+.CartCounter{
+    position: relative;
+    color: rgb(24, 16, 98);
+    margin-top: -25px;
+    margin-left: 30px;
+    font-weight: bold;
+    background-color: yellow;
+    border-radius: 50%;
+    width: 20px;
+    opacity: 0.8;
+}
+
 @media only screen and (max-width: 900px) {
     .NavBar{
         flex-direction: column;
@@ -62,6 +117,7 @@ a{
     }
     .NavBar-logo{
         margin-left: -10px;
+        margin: auto;
         background-repeat: no-repeat;
     }
     .Menu-items-cont{
@@ -83,5 +139,10 @@ a{
     .Search-Bar{
         margin: auto;
     }
+    .CartIcon{
+        margin-top: 30px;
+    }
+    .ItemListContainer{
+        grid-template-columns: 1fr;
+    }
   }
-
