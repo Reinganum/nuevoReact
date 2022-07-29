@@ -110,6 +110,10 @@ margin: auto;
     opacity: 0.8;
 }
 
+.ItemCounter{
+    display: flex;
+}
+
 @media only screen and (max-width: 900px) {
     .NavBar{
         flex-direction: column;
