@@ -4,8 +4,9 @@ import {useState} from "react"
 
 const ItemList=({itemData})=>{
     const [cart]=useState([]);
-    const handleClick=(item)=>{
+    const handleClick=(item,counter)=>{
         cart.push(item)
+        cart.push(counter)
         console.log(cart)
     }
     return(

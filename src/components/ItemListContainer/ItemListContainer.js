@@ -1,14 +1,13 @@
 import React from "react";
 import {useState,useEffect} from "react";
 import ItemList from "../ItemList/ItemList"
-import Items from "../Items/Items";
 import '../ItemListContainer/ItemListContainer';
+import '../ItemDetailContainer/ItemDetailContainer'
 import {arrProducts} from '../Products/Products';
 
 const ItemListContainer = ({greeting}) =>{
 
     const [itemsList, setItemsList]=useState([])
-
     const getArrProducts = new Promise((resolve,reject)=>{
         setTimeout(() => {
             resolve(arrProducts)
@@ -23,10 +22,9 @@ const ItemListContainer = ({greeting}) =>{
             console.log("hubo un error en la llamada")
         })
         .finally(()=>{
-            //setSpinner false
         })
     },[])
-    
+
     return(
         <>
             <h1 className="titulo">{greeting}</h1>

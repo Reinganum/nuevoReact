@@ -1,19 +1,22 @@
 import React from "react";
-import {useState} from "react";
 import '../Items/Items'
 import '../ItemCount/ItemCount'
-import ItemCounter from "../ItemCount/ItemCount";
+import ItemCounter from "../ItemCount/ItemCount"
+import {Link} from 'react-router-dom'
 
 const Items = ({item, handleClick}) =>{ 
-    const {image,title,price,stock} = item;
+    const {image,title,price,stock,id} = item;
+    const getId = event => {
+        console.log(event.currentTarget.id);
+    }
     return(
         <div className="productCard">
-            <img src={`/assets/${image}`} alt=""/>
+            <Link to={`/products/${id}`}>
+            <img src={`/assets/${image}`} alt="" id={id} onClick={getId}/>
+            </Link>
             <p>{title}</p>
             <p id="">${price}</p>     
-            <ItemCounter/>  
-            <p>stock actual:{stock}</p> 
-            <button className="BuyBtn" onClick={()=>handleClick(item)}>comprar</button>
+            <ItemCounter stockActual={stock} item={item} handleClick={handleClick}/>  
         </div>
     )
 }

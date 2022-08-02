@@ -12,7 +12,6 @@ a{
     background-color: rgb(25, 151, 215);
     width: 99vw;
     padding: 0.5rem;
-    flex-wrap: wrap;
 }
 
 .NavBar-logo{
@@ -21,13 +20,11 @@ a{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    margin-left: 15px;
 }
 
 .Menu-items-cont{
     display: flex;
     width: 80vw;
-    align-items: center;
 }
 
 .Menu-items-cont a{
@@ -47,9 +44,7 @@ a{
 
 .Search-Bar{
     display: flex;
-    flex-direction: column;
-    align-self: center;
-    margin-left: auto;
+    align-items: center;
 }
 .Search-Bar input{
     height: 1rem;
@@ -102,16 +97,69 @@ margin: auto;
     position: relative;
     color: rgb(24, 16, 98);
     margin-top: -25px;
-    margin-left: 30px;
+    margin-left: 45px;
     font-weight: bold;
     background-color: yellow;
     border-radius: 50%;
     width: 20px;
     opacity: 0.8;
+    text-align: center;
 }
 
 .ItemCounter{
     display: flex;
+}
+
+/* ItemCounter */ 
+
+/* ITEM DETAILS */
+
+.detailsOuterContainer{
+
+}
+
+.detailsContainer~p{
+}
+
+.detailsContainer, h4{
+    margin-top: 0;
+}
+
+.detailsContainer{
+    display: flex;
+    width: 70vw;
+    margin: auto;
+}
+
+.price{
+    margin-top: 1rem ;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+}
+
+.product-description{
+    background-color: rgb(25, 151, 215);
+    width: 40vw;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 24px;
+}
+
+.detailTitle{
+    background-color: black;
+    color: white;
+}
+
+.detailCategory{
+    background-color: yellow;
+    width: 10rem;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: auto;
+    color: black;
 }
 
 @media only screen and (max-width: 900px) {
