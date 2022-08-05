@@ -12,11 +12,10 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route path='/' element={<ItemListContainer greeting={"BIENVENIDO A TU CLUB DE CINE"}/>}/>
-          <Route path='/products' element={<h1>Productos</h1>}/>
-          <Route path='/products/:id' element={<Detail />}/>
-          <Route path='/contact' element={<h1>Contacto</h1>}/>
-          <Route path='/aboutUs' element={<h1>Nosotros</h1>}/>
+          <Route path='/' element={<ItemListContainer/>}/>
+          <Route path='/products' element={<h1>Todos los productos</h1>}/>
+          <Route path='/products/:itemCategory' element={<ItemListContainer/>}/>
+          <Route path='/products/:category/:id' element={<Detail />}/>
         </Routes>
       </div>
     </BrowserRouter>

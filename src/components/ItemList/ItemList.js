@@ -11,7 +11,7 @@ const ItemList=({itemData})=>{
     }
     return(
         <>
-        {itemData.map(item=>{return <Items key={item.id} item={item} handleClick={handleClick}/>})}
+            {itemData.map(item=>{return <Items key={item.id} item={item} handleClick={handleClick}/>})}
         </>
     )
 }

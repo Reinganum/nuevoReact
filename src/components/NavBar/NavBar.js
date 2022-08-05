@@ -4,19 +4,27 @@ import CartWidget from '../CartWidget/CartWidget';
 import {Link} from 'react-router-dom'
 
 const NavBar = ()=> {
+        const links = [
+            {category:'Productos',url:'/'},
+            {category:'Soundtracks',url:'/products/Soundtrack'},
+            {category:'4K Ultra HD',url:'/products/UltraHD'},
+            {category:'Steelbooks',url:'/products/Steelbook'},
+            {category:'DVD y Descatalogados',url:'/products/DVD'},
+            {category:'Series',url:'/products/Series'},
+        ]
+
         return(
             <nav className='NavBar'>
                 <div className='NavBar-logo-container'>
-                    <img className='NavBar-logo'></img>
+                    <Link to='/'><img className='NavBar-logo'></img></Link>
                 </div>
                 <div className='Menu-items-cont'>
                     <ul>
-                        <Link to='/'><li><a className="Menu-item">Preventas</a></li></Link>
-                        <Link to='/products'><li><a className="Menu-item">Soundtracks</a></li></Link>
-                        <Link to='/contact'><li><a className="Menu-item">4K Ultra HD</a></li></Link>
-                        <Link to='/aboutUs'><li><a className="Menu-item">Steelbooks</a></li></Link>
-                        <li><a className="Menu-item" href='#'>DVD y Descatalogados</a></li>
-                        <li><a className="Menu-item" href='#'>Series</a></li>
+                        {links.map((link,i)=>{
+                            return(
+                            <Link to={`${link.url}`} key={i} className="Menu-item">{`${link.category}`}</Link>
+                            )
+                        })}
                     </ul>
                 </div>
                 <div className='Search-Bar'>

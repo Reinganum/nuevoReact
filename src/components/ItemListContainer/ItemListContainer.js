@@ -3,15 +3,21 @@ import {useState,useEffect} from "react";
 import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/ItemListContainer';
 import '../ItemDetailContainer/ItemDetailContainer'
-import {arrProducts} from '../Products/Products';
+import arrProducts from '../Products/Products';
+import {useParams} from 'react-router-dom';
 
 const ItemListContainer = ({greeting}) =>{
-
-    const [itemsList, setItemsList]=useState([])
+    const {itemCategory} = useParams();  
+    const [itemsList, setItemsList]=useState([]);
+    const categorizedItems = arrProducts.filter((product)=>product.category===itemCategory)
     const getArrProducts = new Promise((resolve,reject)=>{
         setTimeout(() => {
-            resolve(arrProducts)
-        }, 2000); 
+            if (itemCategory) {
+                resolve(categorizedItems)
+            } else {
+                resolve(arrProducts)
+        }
+        }, 1500); 
     })
     useEffect(()=>{
         getArrProducts
@@ -23,11 +29,11 @@ const ItemListContainer = ({greeting}) =>{
         })
         .finally(()=>{
         })
-    },[])
+    },[categorizedItems])
 
     return(
         <>
-            <h1 className="titulo">{greeting}</h1>
+            <h1 className="titulo">Seccion {itemCategory}</h1>
             <div className="ItemListContainer">
                 <ItemList itemData={itemsList}/>
             </div>
