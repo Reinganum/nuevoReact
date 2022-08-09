@@ -20,7 +20,7 @@ export const arrProducts = [{
     image:"producto3.jpg", 
     title:"The Witch (4K UHD Blu-ray) Limited Edition [2022]", 
     price:"50.000",
-    stock:"8",
+    stock:"7",
     id:"3",
     category:"UltraHD",
     description:"New England, 1630. Upon threat of banishment by the church, an English farmer leaves his colonial plantation and relocates his family to a remote plot of land on the edge of an ominous forest—within which lurks an unknown evil. Strange and unsettling things begin to happen —animals turn malevolent, crops fail, one child disappears and another seems to become possessed by an evil spirit. With suspicion and paranoia mounting, daughter Thomasin is accused of witchcraft."

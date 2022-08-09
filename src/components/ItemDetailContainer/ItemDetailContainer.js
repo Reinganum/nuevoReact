@@ -7,10 +7,11 @@ import ItemCounter from "../ItemCount/ItemCount"
 const ItemDetailContainer = () =>{
     const {category, id} = useParams();
     const [itemData, setItemData] = useState({});
+    console.log("stock :" + itemData.stock)
     const getItem = new Promise((resolve,reject)=>{
         setTimeout(() => {
             resolve(arrProducts)
-        }, 2000); 
+        },2000); 
     })
 
     useEffect(()=>{
@@ -36,7 +37,7 @@ const ItemDetailContainer = () =>{
                 <h1 className="detailTitle">{itemData.title}</h1>
                 <h3 className="detailCategory">{itemData.category}</h3>
                 <div className="detailsContainer">
-                    <ItemDetails itemData={itemData}/>
+                    <ItemDetails itemData={itemData} stock={itemData.stock}/>
                 </div> 
             </div>
         </>

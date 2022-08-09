@@ -1,13 +1,14 @@
 import React from "react";
 import {useState,useRef,useEffect} from "react";
 
-const ItemCounter=({stockActual, item, handleClick})=>{
+const ItemCounter=({stockActual, item, setQuantitySelected})=>{
     const [counter, setCounter] = useState(1);
     const counterRef=useRef(null);
     const [cartItems, setCartItems] = useState([]);
     const [stock, setStock] = useState(stockActual);
+    const [cart]=useState([]);
     const plusOne=()=>{
-        if (counter < stock)
+        if (counter < stock) 
         setCounter(count => count + 1)
         }
     const minusOne=()=> {
@@ -20,6 +21,7 @@ const ItemCounter=({stockActual, item, handleClick})=>{
     const actualizarStock=()=>{
         setStock(stock-counter);
     }
+
     useEffect(()=>{
         if (stock < 1){
             setCounter("Stock Agotado");
@@ -27,6 +29,11 @@ const ItemCounter=({stockActual, item, handleClick})=>{
             setCounter(stock);
         }
     },[stock])
+
+    useEffect(()=>{
+        setStock(stockActual)
+    },[stockActual])
+
     return(
         <>
             <div className="ItemCounter">
@@ -35,10 +42,11 @@ const ItemCounter=({stockActual, item, handleClick})=>{
                 <button onClick={plusOne}>+</button>
             </div>
             <button className="BuyBtn" onClick={()=>{
-                handleClick(item,counter);
+                setQuantitySelected(counter);
                 actualizarStock();
                 }}>comprar</button>
             <p>stock actual: {stock}</p> 
+            {console.log(counter)}
          </>
     )
 }

@@ -6,7 +6,7 @@ import '../ItemDetailContainer/ItemDetailContainer'
 import arrProducts from '../Products/Products';
 import {useParams} from 'react-router-dom';
 
-const ItemListContainer = ({greeting}) =>{
+const ItemListContainer = () =>{
     const {itemCategory} = useParams();  
     const [itemsList, setItemsList]=useState([]);
     const categorizedItems = arrProducts.filter((product)=>product.category===itemCategory)

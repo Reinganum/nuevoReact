@@ -7,8 +7,7 @@ const ItemList=({itemData})=>{
     const handleClick=(item,counter)=>{
         cart.push(item)
         cart.push(counter)
-        console.log(cart)
-    }
+        console.log(cart)}
     return(
         <>
             {itemData.map(item=>{return <Items key={item.id} item={item} handleClick={handleClick}/>})}

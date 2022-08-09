@@ -1,9 +1,9 @@
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 
-const Detail = () =>{
+const Detail = (stock) =>{
     return(
         <>
-            <ItemDetailContainer />
+            <ItemDetailContainer stock={stock}/>
         </>
     )
 }
