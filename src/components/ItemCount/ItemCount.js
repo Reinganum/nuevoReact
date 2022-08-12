@@ -1,12 +1,12 @@
 import React from "react";
-import {useState,useRef,useEffect} from "react";
+import {useState,useRef,useEffect,useContext} from "react";
+import { CartContext } from "../../context/CartContext";
 
-const ItemCounter=({stockActual, item, setQuantitySelected})=>{
-    const [counter, setCounter] = useState(1);
+const ItemCounter=({stockActual, itemData,setQuantitySelected})=>{
+    const {addItemToCart,counter,setCounter, setItemQuantity}=useContext(CartContext)
+    
     const counterRef=useRef(null);
-    const [cartItems, setCartItems] = useState([]);
     const [stock, setStock] = useState(stockActual);
-    const [cart]=useState([]);
     const plusOne=()=>{
         if (counter < stock) 
         setCounter(count => count + 1)
@@ -15,13 +15,15 @@ const ItemCounter=({stockActual, item, setQuantitySelected})=>{
         if (counter > 0) {
             setCounter(count => count - 1)
       }}
-      const itemCount=()=>{
-        cartItems.push(counter);
-      }
     const actualizarStock=()=>{
         setStock(stock-counter);
     }
-
+    const onAdd=()=>{
+        const itemToAdd = {...itemData, counter: counter}
+        addItemToCart(itemToAdd)
+        console.log(itemToAdd)
+        setQuantitySelected(counter)
+    }
     useEffect(()=>{
         if (stock < 1){
             setCounter("Stock Agotado");
@@ -42,11 +44,10 @@ const ItemCounter=({stockActual, item, setQuantitySelected})=>{
                 <button onClick={plusOne}>+</button>
             </div>
             <button className="BuyBtn" onClick={()=>{
-                setQuantitySelected(counter);
                 actualizarStock();
+                onAdd();
                 }}>comprar</button>
             <p>stock actual: {stock}</p> 
-            {console.log(counter)}
          </>
     )
 }

@@ -9,6 +9,7 @@ const Items = ({item, handleClick}) =>{
     const getId = event => {
         console.log(event.currentTarget.id);
     }
+    
     return(
         <div className="productCard">
             <Link to={`/products/${category}/${id}`}>

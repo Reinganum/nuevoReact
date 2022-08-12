@@ -1,5 +1,6 @@
 import React from "react";
-import {useState,useEffect} from "react";
+import {useState,useEffect,useContext} from "react";
+import { CartContext } from "../../context/CartContext";
 import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/ItemListContainer';
 import '../ItemDetailContainer/ItemDetailContainer'

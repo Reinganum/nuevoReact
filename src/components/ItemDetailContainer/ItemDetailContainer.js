@@ -25,12 +25,10 @@ const ItemDetailContainer = () =>{
         .catch((error)=>{
             console.log("hubo un error en la llamada")
         })
-        
         .finally(()=>{
         })
     },[])
 })
-
     return(
         <>
             <div className="detailsOuterContainer">
