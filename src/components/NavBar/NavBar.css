@@ -229,8 +229,8 @@ margin: auto;
     height: 100px;
     background-color: white;
     padding: 5px;
-    margin-top: 150px;
-    margin-left: 50px;
+    margin-top: 10px;
+    margin-left: -150px;
     border-radius: 12px;
 }
 
@@ -258,4 +258,41 @@ margin: auto;
     background-color: black;
     border-radius: 8px;
     color: white;
+}
+
+.cartTable{
+    display: flex;
+    width: 80vw;
+    margin: auto;
+    margin-top: 2rem;
+    justify-content: space-evenly;
+    border-radius: 24px;
+    background-color: rgb(209, 222, 238);
+    box-shadow: 5px 10px rgb(106, 167, 247);
+}
+
+td{
+    padding-inline: 5rem;
+}
+
+.RemoveBtn.checkout{
+    margin-top: 50px;
+    padding: 2rem;
+    text-align: center;
+    line-height: 4px;
+}
+
+.totalValue{
+    background-color: yellow;
+    width: 60vw;
+    margin: auto;
+    margin-top: 50px;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 24px;
+}
+
+.removeIcon{
+    padding:1rem;
+    font-size: 1.5rem;
 }

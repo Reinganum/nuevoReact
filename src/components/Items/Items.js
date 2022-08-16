@@ -17,7 +17,6 @@ const Items = ({item, handleClick}) =>{
             </Link>
             <p>{title}</p>
             <p id="">${price}</p>     
-            <ItemCounter stockActual={stock} item={item} handleClick={handleClick}/>  
         </div>
     )
 }

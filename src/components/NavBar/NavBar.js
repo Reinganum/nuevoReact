@@ -29,7 +29,7 @@ const NavBar = ()=> {
                 </div>
                 <div className='Search-Bar'>
                         <input type="text" placeholder='Título o SKU'></input>
-                        <CartWidget contador="1"/>
+                        <Link to='/cart'><CartWidget contador="1"/></Link>
                 </div>
             </nav>
         )

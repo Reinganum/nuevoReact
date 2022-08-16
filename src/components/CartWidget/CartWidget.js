@@ -4,7 +4,8 @@ import { FaShoppingCart} from 'react-icons/fa';
 
 const CartWidget = ({})=> {
     const {cartItems, clear,removeFromCart} = useContext(CartContext)
-    const [visibility, setVisibility]=useState(true);
+    const [visibility, setVisibility]=useState(false);
+    const [totalItems,setTotalItems]=useState(0);
     const changeVisilibity=()=>{
         visibility ? setVisibility(false) : setVisibility(true)
     }
@@ -16,14 +17,22 @@ const CartWidget = ({})=> {
                 setVisibility(false)
             },2000); 
         }
-        
     },[cartItems])
     
+    useEffect(()=>{
+        if (cartItems.length > 0) {
+        let totalItemsInCart = cartItems.reduce((acc, obj)=>{ return acc + obj.counter; }, 0);
+        setTotalItems(totalItemsInCart)
+        } else {
+            setTotalItems(0)
+        }
+    },[cartItems])
+
     return(
         <>
             <div>
-                <FaShoppingCart className='CartIcon' onClick={changeVisilibity}/>
-                <p className='CartCounter'>{0}</p>
+                <FaShoppingCart className='CartIcon'/>
+                <p className='CartCounter'>{totalItems}</p>
             </div>
             <div className={`cartWidgetItems ${visibility ? "visible" : "hidden"}`}>
                 {cartItems.map((item)=>{
@@ -40,7 +49,7 @@ const CartWidget = ({})=> {
                         </div>
                     )
                 })}
-                <button onClick={clear} className="RemoveBtn">Vaciar carro</button>
+                <button onClick={clear} className="RemoveBtn">{cartItems.length>0 ? "Vaciar carro" : "carro vacio"}</button>
             </div>
             
         </>
