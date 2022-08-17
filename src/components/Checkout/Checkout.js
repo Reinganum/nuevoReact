@@ -31,7 +31,7 @@ const Checkout=()=>{
                                     <td>{item.title}</td>
                                     <td>{item.counter}</td>
                                     <td>{item.price}</td>
-                                    <td>{(item.price).replaceAll('.', '') * item.counter}</td>
+                                    <td>{((item.price).replaceAll('.','')) * item.counter}</td>
                                     <td><FaTrashAlt className="removeIcon" onClick={()=>removeFromCart(item.id)}>Quitar</FaTrashAlt></td>
                                 </tr>
                             </table>
