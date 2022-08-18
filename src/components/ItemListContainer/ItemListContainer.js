@@ -1,36 +1,37 @@
 import React from "react";
-import {useState,useEffect,useContext} from "react";
-import { CartContext } from "../../context/CartContext";
+import {useState,useEffect} from "react";
 import ItemList from "../ItemList/ItemList"
 import '../ItemListContainer/ItemListContainer';
 import '../ItemDetailContainer/ItemDetailContainer'
-import arrProducts from '../Products/Products';
 import {useParams} from 'react-router-dom';
+import { collection, getDocs} from "firebase/firestore"
+import db from "../../firebaseConfig";
 
 const ItemListContainer = () =>{
     const {itemCategory} = useParams();  
     const [itemsList, setItemsList]=useState([]);
-    const categorizedItems = arrProducts.filter((product)=>product.category===itemCategory)
-    const getArrProducts = new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            if (itemCategory) {
-                resolve(categorizedItems)
-            } else {
-                resolve(arrProducts)
-        }
-        }, 1500); 
-    })
+    const getItems = async () =>{
+        const itemCollection = collection(db, 'items')
+        const itemSnapshot = await getDocs(itemCollection)
+        const itemList = itemSnapshot.docs.map((doc)=>{
+            let item = doc.data()
+            item.id = doc.id
+            return item
+        })
+        return itemList
+    }
+    
     useEffect(()=>{
-        getArrProducts
-        .then((data)=>{
-            setItemsList(data)
+        getItems()
+        .then((res)=>{
+            if (itemCategory) {
+                const categorized = res.filter((item)=>item.category===itemCategory)
+                setItemsList(categorized)
+            } else {
+                setItemsList(res)
+            }
         })
-        .catch((error)=>{
-            console.log("hubo un error en la llamada")
-        })
-        .finally(()=>{
-        })
-    },[categorizedItems])
+    },[itemCategory])
 
     return(
         <>

@@ -2,33 +2,25 @@ import {useState,useEffect} from "react";
 import {arrProducts} from '../Products/Products';
 import ItemDetails from '../ItemDetails/ItemDetails'
 import {useParams} from 'react-router-dom'
-import ItemCounter from "../ItemCount/ItemCount"
+import db from "../../firebaseConfig";
+import {doc, getDoc} from "firebase/firestore"
 
 const ItemDetailContainer = () =>{
-    const {category, id} = useParams();
+    const { id } = useParams();
     const [itemData, setItemData] = useState({});
-    console.log("stock :" + itemData.stock)
-    const getItem = new Promise((resolve,reject)=>{
-        setTimeout(() => {
-            resolve(arrProducts)
-        },2000); 
-    })
-
-    useEffect(()=>{
-        getItem
-        .then((data)=>{
-            data.filter((product)=>{
-                if(product.id == id){
-                    setItemData(product)
-                }
+    useEffect( () => {
+        getItem()
+        .then((res)=>{
+            setItemData(res)
         })
-        .catch((error)=>{
-            console.log("hubo un error en la llamada")
-        })
-        .finally(()=>{
-        })
-    },[])
-})
+    },[id])
+    const getItem = async () =>{
+        const docRef = doc(db, 'items', id)
+        const docSnapshot = await getDoc(docRef)
+        let item = docSnapshot.data()
+        item.id = docSnapshot.id
+        return item
+    }
     return(
         <>
             <div className="detailsOuterContainer">

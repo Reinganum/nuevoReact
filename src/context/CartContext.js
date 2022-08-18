@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 const CartContext= createContext()
 
 const CartProvider = ({children}) =>{
-    const [cartItems,setCartItems]=useState([])
+    const [cartItems,setCartItems]=useState([]);
     const [counter, setCounter] = useState(1);
     const addItemToCart=(item)=>{
       const isItemInCart = cartItems.find(
@@ -26,10 +26,12 @@ const CartProvider = ({children}) =>{
     const clear=()=>{
         setCartItems([]);
     }
+
     const removeFromCart=(id)=>{
         const newCart = cartItems.filter((item)=> item.id !== id);
         setCartItems(newCart);
     }
+    
     const data={
         cartItems,
         setCartItems,
