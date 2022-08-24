@@ -5,6 +5,7 @@ const CartContext= createContext()
 const CartProvider = ({children}) =>{
     const [cartItems,setCartItems]=useState([]);
     const [counter, setCounter] = useState(1);
+    const [totalPrice, setTotalPrice] = useState(0);
     const addItemToCart=(item)=>{
       const isItemInCart = cartItems.find(
         (itemInCart) => itemInCart.id === item.id

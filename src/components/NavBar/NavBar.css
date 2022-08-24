@@ -186,42 +186,7 @@ margin: auto;
     width: 190px;
 }
 
-@media only screen and (max-width: 900px) {
-    .NavBar{
-        flex-direction: column;
-        align-items: center;
-    }
-    .NavBar-logo{
-        margin-left: -10px;
-        margin: auto;
-        background-repeat: no-repeat;
-    }
-    .Menu-items-cont{
-        flex-direction: column;
-    }
-    .Menu-item{
-        padding:0rem;
-    }
-    .Menu-items-cont a{
-        display: block;
-        min-width: fit-content;
-        text-align: center;
-        margin-left: -40px;
-    }
-    .Menu-items-cont li{
-        line-height: 2rem;
-    }
 
-    .Search-Bar{
-        margin: auto;
-    }
-    .CartIcon{
-        margin-top: 30px;
-    }
-    .ItemListContainer{
-        grid-template-columns: 1fr;
-    }
-  }
 
 .cartWidgetItems{
     position: absolute;
@@ -280,6 +245,7 @@ td{
     padding: 2rem;
     text-align: center;
     line-height: 4px;
+    margin-inline: 10px;
 }
 
 .totalValue{
@@ -296,3 +262,114 @@ td{
     padding:1rem;
     font-size: 1.5rem;
 }
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 24px;
+    position: absolute;
+    margin-left: 20%;
+    box-shadow: 5px 10px rgb(106, 167, 247);
+}
+
+.modal-title{
+    display: flex;
+    width: 100%;
+    background-color: red;
+    margin-top: 20px;
+    justify-content: space-between;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.2rem;
+    border-radius: 24px 24px 0px 0px;
+}
+
+.windowClose{
+    font-size: 1.5rem;
+}
+
+.userForm{
+    display: flex;
+    flex-direction: column;
+}
+
+label {display:block;clear:both;}
+
+.formDataInput{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: white(193, 188, 188);
+    padding: 12px;
+    width: 250px;
+    outline-color: rgb(101, 192, 232);
+    margin-top: 30px;
+}
+
+select{
+    margin-top: 50px;
+}
+
+.discount{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: yellow;
+    border-radius: 50%;
+    line-height: 50px;
+    margin-left: 150px;
+    margin-top: -20px;
+}
+
+.deliveryType{
+    padding: 0.5rem;
+    margin-bottom: 50px;
+    margin-top: -50px;
+}
+
+.overline{
+    text-decoration: line-through;
+}
+
+@media only screen and (max-width: 900px) {
+    .NavBar{
+        flex-direction: column;
+        align-items: center;
+    }
+    .NavBar-logo{
+        margin-left: -10px;
+        margin: auto;
+        background-repeat: no-repeat;
+    }
+    .Menu-items-cont{
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+    }
+    .Menu-item{
+        padding:0rem;
+    }
+    .Menu-items-cont a{
+        display: block;
+        min-width: fit-content;
+        text-align: center;
+        margin-left: -40px;
+    }
+    .Menu-items-cont li{
+        line-height: 2rem;
+    }
+
+    .Search-Bar{
+        margin: auto;
+    }
+    .CartIcon{
+        margin-top: 30px;
+    }
+    .ItemListContainer{
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+  }
