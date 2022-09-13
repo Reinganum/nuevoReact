@@ -43,5 +43,3 @@ $ npm start
 
 * [información sobre react-spinners](https://www.davidhu.io/react-spinners/)
 * [sobre como utilizar la API Country - state - city](https://countrystatecity.in/docs/) 
-
-![](https://gifer.com/es/gifs/videodrome)
