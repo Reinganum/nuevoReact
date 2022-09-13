@@ -19,6 +19,11 @@ body{
     padding: 0.5rem;
 }
 
+.NavBar-logo-container{
+    display: flex;
+    align-items: center;
+}
+
 .NavBar-logo{
     background-image: url(/public/assets/spaceDistortions.webp);
     background-size: contain;
@@ -39,6 +44,7 @@ body{
     margin: 1rem;
     color: white;
     padding: 1rem;
+    line-height: 3rem;
 }
 
 .Menu-item:hover{
@@ -46,6 +52,10 @@ body{
     border-bottom: 3px solid rgb(250, 192, 1);
     border-radius: 24px;
 }
+
+.clipLoader{
+    margin-top: 200px;
+} 
 
 .Search-Bar{
     display: flex;
@@ -113,6 +123,16 @@ margin: auto;
     opacity: 0.8;
     text-align: center;
 }
+.counterBtn{
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.counterNum{
+    font-weight: bold;
+    font-size: 20px;
+}
 
 .ItemCounter{
     display: flex;
@@ -121,13 +141,6 @@ margin: auto;
 /* ItemCounter */ 
 
 /* ITEM DETAILS */
-
-.detailsOuterContainer{
-
-}
-
-.detailsContainer~p{
-}
 
 .detailsContainer, h4{
     margin-top: 0;
@@ -236,6 +249,10 @@ margin: auto;
     box-shadow: 5px 10px rgb(106, 167, 247);
 }
 
+.cartData{
+    align-self: center;
+}
+
 td{
     padding-inline: 5rem;
 }
@@ -267,12 +284,13 @@ td{
     display: flex;
     flex-direction: column;
     width: 50vw;
-    height: 80vh;
+    height: fit-content;
     background-color: white;
     border-radius: 24px;
     position: absolute;
     margin-left: 20%;
     box-shadow: 5px 10px rgb(106, 167, 247);
+    padding-bottom: 40px;
 }
 
 .modal-title{
@@ -280,14 +298,17 @@ td{
     width: 100%;
     background-color: red;
     margin-top: 20px;
-    justify-content: space-between;
+    justify-content: center;
     font-family: 'Bebas Neue', cursive;
     font-size: 1.2rem;
     border-radius: 24px 24px 0px 0px;
 }
 
 .windowClose{
-    font-size: 1.5rem;
+    position: absolute;
+    margin-left: 96%;
+    background-color: red;
+    font-size: 32px;
 }
 
 .userForm{
@@ -324,9 +345,13 @@ select{
     margin-top: -20px;
 }
 
+select{
+    width: max-content;
+}
+
 .deliveryType{
     padding: 0.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     margin-top: -50px;
 }
 
@@ -334,7 +359,37 @@ select{
     text-decoration: line-through;
 }
 
+.orderTable{
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+    min-width: 400px;
+}
+
+.orderTable th{
+    padding: 20px;
+    font-size: large;
+}
+
+.orderTable tr{
+    border-bottom: 1px solid lightgray;
+}
+
+.orderTable td{
+    padding: 5px;
+}
+
+.orderTable tr td:nth-child(1){
+    inline-size: 8rem;
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 900px) {
+    h1{
+        width: 80vw;
+        margin: auto;
+    }
     .NavBar{
         flex-direction: column;
         align-items: center;
@@ -363,13 +418,35 @@ select{
     }
 
     .Search-Bar{
+        flex-direction: column;
         margin: auto;
     }
     .CartIcon{
         margin-top: 30px;
     }
+    .detailTitle{
+        margin-top: 50px;
+    }
     .ItemListContainer{
         grid-template-columns: 1fr;
         justify-items: center;
+    }
+    .detailContainer{
+        flex-direction: column;
+    }
+    .productDescription{
+        margin-top: 50px;
+        width: 50vw;
+        height: max-content;
+    }
+    .cartTable{
+        flex-direction: column;
+    }
+    .formDataInput{
+        width: 150px;
+    }
+    .modal{
+        width: 95vw;
+        margin-left: 2vw;
     }
   }

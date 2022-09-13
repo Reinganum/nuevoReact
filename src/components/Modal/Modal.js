@@ -2,7 +2,6 @@ import {FaWindowClose} from 'react-icons/fa';
 
 const Modal = ({title, close, children}) =>{
     return(
-
         <div className="modal">
             <div className='modal-title'>
                 <h2>{title}</h2>

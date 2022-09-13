@@ -1,6 +1,7 @@
-import React from 'react';
-import '../NavBar/NavBar.css'
+import React, { useState , useEffect } from 'react';
+import '../Styles/styles.css'
 import CartWidget from '../CartWidget/CartWidget'; 
+import {FaSearch} from 'react-icons/fa';
 import {Link} from 'react-router-dom'
 
 const NavBar = ()=> {
@@ -12,7 +13,22 @@ const NavBar = ()=> {
             {category:'DVD y Descatalogados',url:'/products/DVD'},
             {category:'Series',url:'/products/Series'},
         ]
-
+        
+        const [search, setSearch] = useState('')
+        const searchValue=(e)=>{
+            setSearch(e.target.value)
+        } 
+        const submitSearch=(e)=>{
+            if(e.keyCode===13){
+                onFormSubmit()
+            }
+        }
+        const onFormSubmit = (e) => {
+            console.log(e)
+          }
+        useEffect(() => {
+            const query=search;
+          }, [search]);
         return(
             <nav className='NavBar'>
                 <div className='NavBar-logo-container'>
@@ -27,10 +43,11 @@ const NavBar = ()=> {
                         })}
                     </ul>
                 </div>
-                <div className='Search-Bar'>
-                        <input type="text" placeholder='Título o SKU'></input>
+                <form className='Search-Bar' onSubmit={onFormSubmit}>
+                        <input type="text" placeholder='Title' onChange={(e)=>searchValue(e)} onKeyDown={(e)=>submitSearch(e)}></input>
+                        <Link to={`/products/${search}`}><button type='submit'><FaSearch className='SearchIcon'/></button></Link>
                         <Link to='/cart'><CartWidget contador="1"/></Link>
-                </div>
+                </form>
             </nav>
         )
     };

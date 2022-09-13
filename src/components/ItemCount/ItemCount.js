@@ -1,11 +1,12 @@
 import React from "react";
 import {useState,useRef,useEffect,useContext} from "react";
 import { CartContext } from "../../context/CartContext";
+import {useParams} from 'react-router-dom';
 
 const ItemCounter=({stockActual, itemData,setQuantitySelected})=>{
     const {addItemToCart,counter,setCounter, setItemQuantity}=useContext(CartContext)
-    
     const counterRef=useRef(null);
+    const {itemId}=useParams();
     const [stock, setStock] = useState(stockActual);
     const plusOne=()=>{
         if (counter < stock) 
@@ -21,7 +22,6 @@ const ItemCounter=({stockActual, itemData,setQuantitySelected})=>{
     const onAdd=()=>{
         const itemToAdd = {...itemData, counter: counter}
         addItemToCart(itemToAdd)
-        console.log(itemToAdd)
         setQuantitySelected(counter)
     }
     useEffect(()=>{
@@ -31,17 +31,21 @@ const ItemCounter=({stockActual, itemData,setQuantitySelected})=>{
             setCounter(stock);
         }
     },[stock])
-
+    
     useEffect(()=>{
         setStock(stockActual)
     },[stockActual])
 
+    useEffect(()=>{
+        setCounter(1)
+    },[itemId])
+
     return(
         <>
             <div className="ItemCounter">
-                <button onClick={minusOne}>-</button>
-                <p ref={counterRef}>{counter}</p>
-                <button onClick={plusOne}>+</button>
+                <button className="counterBtn" onClick={minusOne}>-</button>
+                <p className="counterNum" ref={counterRef}>{counter}</p>
+                <button className="counterBtn" onClick={plusOne}>+</button>
             </div>
             <button className="BuyBtn" onClick={()=>{
                 actualizarStock();
